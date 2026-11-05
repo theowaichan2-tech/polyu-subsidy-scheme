@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolyU Design — Competition/Award Subsidy Scheme</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              50: '#FAF8F5',
+              100: '#F5F2EB',
+              200: '#ECE7DD',
+              300: '#DFD8CA',
+              400: '#C2B8A3',
+            },
+            charcoal: {
+              900: '#1A1917',
+              800: '#282623',
+              700: '#3D3A35',
+              600: '#5A564F',
+              500: '#7A756C',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar & subtle aesthetics */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #dcd8cf; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #b8b3a7; }
+    .hero-pattern {
+      background-image: radial-gradient(#d5cfc2 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+  </style>
+</head>
+<body class="bg-[#F5F2EB] text-[#1A1917] font-sans antialiased selection:bg-[#1A1917] selection:text-white min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 0: PUBLIC LANDING PAGE (#screen-landing)                           -->
+  <!-- ========================================================================= -->
+  <section id="screen-landing" class="screen-view min-h-screen flex flex-col justify-between">
+    <!-- Top Nav -->
+    <header class="border-b border-[#ECE7DD] bg-[#F5F2EB]/90 sticky top-0 z-30 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <span class="font-bold tracking-tight text-lg text-[#1A1917]">PolyU School of Design</span>
+          <span class="text-[#7A756C] text-sm">Competition/Award Subsidy Scheme</span>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8 text-sm text-[#5A564F]">
+          <a href="#about" class="hover:text-black transition">About</a>
+          <a href="#eligibility" class="hover:text-black transition">Eligibility</a>
+          <a href="#how-it-works" class="hover:text-black transition">How it works</a>
+          <button onclick="navTo('screen-help')" class="hover:text-black transition">FAQ</button>
+        </nav>
+        <button onclick="navTo('screen-dashboard')" class="bg-[#1A1917] text-white text-sm px-5 py-2.5 rounded-full hover:bg-black transition flex items-center space-x-2">
+          <span>Student portal</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-7xl mx-auto px-6 pt-12 pb-20 w-full flex-1">
+      <div class="relative bg-white border border-[#ECE7DD] rounded-[28px] overflow-hidden p-8 md:p-16 mb-12 shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <!-- Abstract Architectural Graphic / PolyU Ribbon -->
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="w-full h-80 rounded-2xl bg-[#EFECE3] overflow-hidden relative flex items-center justify-center border border-[#E5DFD2]">
+              <svg class="w-full h-full text-[#7A756C]/30" viewBox="0 0 400 400" fill="none">
+                <path d="M-50,200 C50,50 150,350 450,150" stroke="currentColor" stroke-width="28" stroke-linecap="round"/>
+                <path d="M-50,260 C80,120 180,380 450,210" stroke="currentColor" stroke-width="18" stroke-linecap="round"/>
+                <path d="M-50,320 C100,190 200,410 450,270" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute bottom-6 left-6 font-bold text-3xl tracking-tight text-[#1A1917]">
+                PolyU Design
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Typography -->
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div class="inline-block border-l-2 border-[#1A1917] pl-3">
+              <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">PolyU School of Design</p>
+              <p class="text-xs text-[#5A564F]">Competition/Award Subsidy Scheme</p>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-[#1A1917] leading-[1.08]">
+              Take your design work further.
+            </h1>
+            <p class="text-lg text-[#5A564F] max-w-xl">
+              Financial support for PolyU Design students entering recognised competitions and awards.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <button onclick="navTo('screen-dashboard')" class="bg-[#1A1917] hover:bg-black text-white px-6 py-3.5 rounded-xl font-medium text-sm flex items-center space-x-2 transition shadow-sm">
+                <span>Apply through the portal</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-[#1A1917] px-6 py-3.5 rounded-xl font-medium text-sm transition">
+                Explore the scheme
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Badges Bar -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 mt-12 border-t border-[#ECE7DD]">
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl font-extrabold text-[#1A1917]">2</span>
+            <div>
+              <p class="text-xs uppercase font-semibold text-[#7A756C]">Support types</p>
+              <p class="text-xs text-[#5A564F]">Entrance fees and shipping</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl font-extrabold text-[#1A1917]">3</span>
+            <div>
+              <p class="text-xs uppercase font-semibold text-[#7A756C]">Recognition levels</p>
+              <p class="text-xs text-[#5A564F]">Local, national and international</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-3xl font-extrabold text-[#1A1917]">1 mo</span>
+            <div>
+              <p class="text-xs uppercase font-semibold text-[#7A756C]">Result reporting</p>
+              <p class="text-xs text-[#5A564F]">From the official announcement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How it Works Section -->
+      <section id="how-it-works" class="mb-20">
+        <div class="mb-8">
+          <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">How it works</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1A1917] mt-1">From application to reimbursement.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-xs font-semibold">01</span>
+            <h3 class="font-bold text-base">Apply</h3>
+            <p class="text-xs text-[#5A564F] leading-relaxed">Submit competition, project and requested funding details through the student portal.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-xs font-semibold">02</span>
+            <h3 class="font-bold text-base">Review</h3>
+            <p class="text-xs text-[#5A564F] leading-relaxed">A faculty endorser and the School review eligibility and the funding request.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-xs font-semibold">03</span>
+            <h3 class="font-bold text-base">Subsidy</h3>
+            <p class="text-xs text-[#5A564F] leading-relaxed">Receive the funding decision and submit eligible receipts for reimbursement.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-xs font-semibold">04</span>
+            <h3 class="font-bold text-base">Report results</h3>
+            <p class="text-xs text-[#5A564F] leading-relaxed">Report the official outcome within one month of its announcement.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eligibility Section -->
+      <section id="eligibility" class="mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-4">
+            <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">Eligibility</p>
+            <h2 class="text-3xl font-bold tracking-tight text-[#1A1917] mt-1">Check before you begin.</h2>
+            <p class="text-xs text-[#5A564F] mt-2">Every application should meet these core requirements.</p>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD] flex items-start space-x-3">
+              <span class="bg-[#1A1917] text-white text-[10px] font-bold px-2 py-0.5 rounded">YES</span>
+              <div>
+                <h4 class="font-bold text-sm">Current student</h4>
+                <p class="text-xs text-[#5A564F] mt-1">You are a current full-time PolyU School of Design student.</p>
+              </div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD] flex items-start space-x-3">
+              <span class="bg-[#1A1917] text-white text-[10px] font-bold px-2 py-0.5 rounded">YES</span>
+              <div>
+                <h4 class="font-bold text-sm">Recognised opportunity</h4>
+                <p class="text-xs text-[#5A564F] mt-1">The competition or award has professional, national or international recognition.</p>
+              </div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD] flex items-start space-x-3">
+              <span class="bg-[#1A1917] text-white text-[10px] font-bold px-2 py-0.5 rounded">YES</span>
+              <div>
+                <h4 class="font-bold text-sm">Original funding request</h4>
+                <p class="text-xs text-[#5A564F] mt-1">The entry is not supported by another financial scheme.</p>
+              </div>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD] flex items-start space-x-3">
+              <span class="bg-[#E5484D] text-white text-[10px] font-bold px-2 py-0.5 rounded">NO</span>
+              <div>
+                <h4 class="font-bold text-sm">Exchange student</h4>
+                <p class="text-xs text-[#5A564F] mt-1">Exchange students are not eligible for this scheme.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pre-Footer CTA -->
+      <div class="bg-[#ECE7DD] rounded-3xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">September 2025 – August 2026</span>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1917] mt-1">Ready to submit your work?</h3>
+          <p class="text-xs text-[#5A564F] mt-1">Sign in to start an application or continue an existing draft.</p>
+        </div>
+        <button onclick="navTo('screen-dashboard')" class="bg-[#1A1917] text-white text-sm px-6 py-3 rounded-xl font-medium hover:bg-black transition whitespace-nowrap">
+          Enter the student portal →
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#ECE7DD] py-6 text-xs text-[#7A756C] bg-[#F5F2EB]">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>PolyU School of Design • Competition/Award Subsidy Scheme</div>
+        <div>September 2025 – August 2026</div>
+      </div>
+    </footer>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 1: STUDENT DASHBOARD (#screen-dashboard)                           -->
+  <!-- ========================================================================= -->
+  <section id="screen-dashboard" class="screen-view hidden min-h-screen flex flex-col md:flex-row">
+    <!-- Left Navigation Sidebar -->
+    <aside class="w-full md:w-64 bg-[#EFECE3] border-r border-[#ECE7DD] flex flex-col justify-between shrink-0">
+      <div>
+        <div class="p-6 border-b border-[#ECE7DD]">
+          <p class="text-[10px] uppercase font-bold tracking-wider text-[#7A756C]">POLYU SCHOOL OF DESIGN</p>
+          <h2 class="text-lg font-bold tracking-tight text-[#1A1917] mt-0.5">Subsidy Scheme</h2>
+        </div>
+        <nav class="p-4 space-y-1">
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-white shadow-sm font-semibold text-xs text-[#1A1917]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button onclick="navTo('screen-form-1')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            <span>New application</span>
+          </button>
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <div class="flex items-center space-x-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>My applications</span>
+            </div>
+            <span class="text-[10px] bg-[#DFD8CA] text-[#1A1917] px-1.5 py-0.5 rounded font-bold">4</span>
+          </button>
+          <button onclick="navTo('screen-reporting')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Result reporting</span>
+          </button>
+          <button onclick="navTo('screen-help')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Help & support</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- User Profile Badge -->
+      <div class="p-4 border-t border-[#ECE7DD]">
+        <div class="flex items-center space-x-3 p-2 bg-white/70 rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs">
+            HT
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-[#1A1917] truncate">Hugo Tsang</p>
+            <p class="text-[10px] text-[#7A756C] truncate">Student applicant</p>
+          </div>
+          <button onclick="navTo('screen-landing')" title="Sign out / Exit" class="text-[#7A756C] hover:text-black">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto">
+      <!-- Top header bar -->
+      <div class="px-8 py-4 border-b border-[#ECE7DD] flex items-center justify-between text-xs text-[#7A756C]">
+        <div>Student portal • Dashboard</div>
+        <div class="flex items-center space-x-4">
+          <button class="hover:text-black"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></button>
+          <div class="relative">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-red-500"></span>
+          </div>
+          <div class="w-6 h-6 rounded-full bg-[#1A1917] text-white flex items-center justify-center text-[10px] font-bold">HT</div>
+        </div>
+      </div>
+
+      <div class="p-8 max-w-6xl mx-auto space-y-8">
+        <!-- Welcome Hero -->
+        <div>
+          <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">SEP 2026 – AUG 2027 • YEAR 3 • PRODUCT DESIGN</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1A1917] mt-1">Good afternoon, Hugo.</h1>
+          <p class="text-sm text-[#5A564F] mt-2">Here's where your subsidy applications stand today.</p>
+          <div class="mt-4">
+            <button onclick="navTo('screen-form-1')" class="bg-[#1A1917] text-white px-5 py-2.5 rounded-xl text-xs font-semibold hover:bg-black transition flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              <span>Start a new application</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Active applications</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">4</p>
+            <p class="text-xs text-[#7A756C] mt-2">Across 3 competition bodies</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Approved funding</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">HK$1,900</p>
+            <p class="text-xs text-[#7A756C] mt-2">HK$8,100 available this cycle</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Next deadline</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">14 days</p>
+            <p class="text-xs text-[#7A756C] mt-2">Report D&AD result by 12 Nov</p>
+          </div>
+        </div>
+
+        <!-- Priority Queue: Needs your action -->
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="text-[10px] uppercase font-bold text-[#7A756C]">Priority queue</p>
+              <h2 class="text-xl font-bold tracking-tight text-[#1A1917]">Needs your action</h2>
+            </div>
+            <span class="text-[10px] bg-[#faeae6] text-[#b33a2b] font-bold px-2 py-0.5 rounded-full">2 PENDING</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Action Card 1: Revision -->
+            <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between text-xs text-[#7A756C] mb-3">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-6 h-6 rounded-full bg-[#faeae6] text-[#b33a2b] flex items-center justify-center font-bold text-[10px]">!</span>
+                    <span class="uppercase font-bold text-[10px] text-[#b33a2b]">Returned for revision</span>
+                  </div>
+                  <span class="text-[11px]">18 OCT 2026</span>
+                </div>
+                <h3 class="text-base font-bold text-[#1A1917]">Red Dot Design Award</h3>
+                <p class="text-xs text-[#5A564F] mt-1 leading-relaxed">Confirm the group member student IDs, then resubmit for Prof. Karen Wong's endorsement.</p>
+              </div>
+              <div class="mt-6">
+                <button onclick="navTo('screen-form-2')" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center space-x-1.5">
+                  <span>Revise application</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Action Card 2: Result due -->
+            <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between text-xs text-[#7A756C] mb-3">
+                  <div class="flex items-center space-x-2">
+                    <span class="w-6 h-6 rounded-full bg-[#fbf1e0] text-[#966c1b] flex items-center justify-center font-bold text-[10px]">⏰</span>
+                    <span class="uppercase font-bold text-[10px] text-[#966c1b]">Result due in 14 days</span>
+                  </div>
+                  <span class="text-[11px]">12 NOV 2026</span>
+                </div>
+                <h3 class="text-base font-bold text-[#1A1917]">D&AD Awards</h3>
+                <p class="text-xs text-[#5A564F] mt-1 leading-relaxed">Report the official result within one month of the competition announcement.</p>
+              </div>
+              <div class="mt-6">
+                <button onclick="navTo('screen-reporting')" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center space-x-1.5">
+                  <span>Report result</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Tracker List -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD]">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 border-b border-[#ECE7DD] pb-4">
+            <div>
+              <p class="text-[10px] uppercase font-bold text-[#7A756C]">Application tracker</p>
+              <h3 class="text-lg font-bold text-[#1A1917]">Your applications</h3>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-semibold">
+              <span class="border-b-2 border-black pb-1 text-black cursor-pointer">All</span>
+              <span class="text-[#7A756C] hover:text-black cursor-pointer pb-1">Draft</span>
+              <span class="text-[#7A756C] hover:text-black cursor-pointer pb-1">Pending endorsement</span>
+              <span class="text-[#7A756C] hover:text-black cursor-pointer pb-1">Approved</span>
+            </div>
+          </div>
+
+          <div class="divide-y divide-[#ECE7DD]">
+            <!-- Item 1 -->
+            <div class="py-3 flex items-center justify-between hover:bg-[#FAF8F5] px-2 rounded-lg transition cursor-pointer" onclick="navTo('screen-form-1')">
+              <div>
+                <span class="text-[11px] text-[#7A756C]">SD-2026-018 • Updated 2 days ago</span>
+                <p class="text-sm font-bold text-[#1A1917]">Core77 Design Awards</p>
+                <p class="text-xs text-[#7A756C]">Ripple — modular seating system</p>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#f0ede6] text-[#6e6a62]">DRAFT</span>
+                <span class="text-xs text-[#7A756C]">›</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="py-3 flex items-center justify-between hover:bg-[#FAF8F5] px-2 rounded-lg transition cursor-pointer" onclick="navTo('screen-form-2')">
+              <div>
+                <span class="text-[11px] text-[#7A756C]">SD-2026-014 • Returned 18 Oct 2026</span>
+                <p class="text-sm font-bold text-[#1A1917]">Red Dot Design Award</p>
+                <p class="text-xs text-[#7A756C]">Lumen Bench — kinetic solar seating</p>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#faeae6] text-[#b33a2b]">RETURNED FOR REVISION</span>
+                <span class="text-xs text-[#7A756C]">›</span>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="py-3 flex items-center justify-between hover:bg-[#FAF8F5] px-2 rounded-lg transition cursor-pointer" onclick="navTo('screen-reporting')">
+              <div>
+                <span class="text-[11px] text-[#7A756C]">SD-2026-009 • Approved 04 Oct 2026</span>
+                <p class="text-sm font-bold text-[#1A1917]">D&AD Awards</p>
+                <p class="text-xs text-[#7A756C]">Fold — editorial identity system</p>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#e4efe6] text-[#2e6b3e]">APPROVED</span>
+                <span class="text-xs text-[#7A756C]">›</span>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="py-3 flex items-center justify-between hover:bg-[#FAF8F5] px-2 rounded-lg transition cursor-pointer">
+              <div>
+                <span class="text-[11px] text-[#7A756C]">SD-2026-004 • Sent 26 Sep 2026</span>
+                <p class="text-sm font-bold text-[#1A1917]">iF Design Award</p>
+                <p class="text-xs text-[#7A756C]">Nest — community learning toolkit</p>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#fbf1e0] text-[#966c1b]">PENDING ENDORSEMENT</span>
+                <span class="text-xs text-[#7A756C]">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Allowance + Journey Tracker -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Cycle Allowance -->
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">2026/27 CYCLE ALLOWANCE</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">HK$8,100</p>
+            <p class="text-xs text-[#7A756C]">REMAINING</p>
+            <div class="w-full bg-[#ECE7DD] h-2 rounded-full overflow-hidden mt-4">
+              <div class="bg-[#1A1917] h-full w-[19%]"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#7A756C] mt-2">
+              <span>HK$1,900 approved</span>
+              <span>HK$10,000 cap</span>
+            </div>
+            <p class="text-xs text-[#5A564F] mt-4 pt-3 border-t border-[#ECE7DD]">
+              Shipping support is capped at HK$1,000 per application.
+            </p>
+          </div>
+
+          <!-- Application Journey -->
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">HOW IT WORKS</p>
+            <h3 class="text-lg font-bold text-[#1A1917] mb-4">Your application journey</h3>
+            <div class="space-y-4 text-xs">
+              <div class="flex items-start space-x-3">
+                <span class="w-5 h-5 rounded-full bg-[#1A1917] text-white flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                <div>
+                  <p class="font-bold text-[#1A1917]">Prepare</p>
+                  <p class="text-[#7A756C]">Build and save your draft</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="w-5 h-5 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center text-[10px] font-bold shrink-0">2</span>
+                <div>
+                  <p class="font-bold text-[#1A1917]">Endorse</p>
+                  <p class="text-[#7A756C]">Faculty reviews your request</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="w-5 h-5 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center text-[10px] font-bold shrink-0">3</span>
+                <div>
+                  <p class="font-bold text-[#1A1917]">Verify</p>
+                  <p class="text-[#7A756C]">SD Marketing checks eligibility</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="w-5 h-5 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center text-[10px] font-bold shrink-0">4</span>
+                <div>
+                  <p class="font-bold text-[#1A1917]">Reimburse</p>
+                  <p class="text-[#7A756C]">Submit receipts after approval</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 2: APPLICATION FORM STEP 1 (#screen-form-1)                       -->
+  <!-- ========================================================================= -->
+  <section id="screen-form-1" class="screen-view hidden min-h-screen bg-[#F5F2EB] flex flex-col">
+    <!-- Top Header Bar -->
+    <header class="border-b border-[#ECE7DD] bg-white px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="font-bold text-sm tracking-tight text-[#1A1917]">PolyU Design</span>
+        <span class="text-xs text-[#7A756C] border-l border-[#ECE7DD] pl-3">Subsidy Scheme</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-xs text-[#7A756C]">Draft • Application ref pending</span>
+        <button onclick="saveDraftNotification()" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-3 py-1.5 rounded-lg transition">Save draft</button>
+        <button onclick="navTo('screen-dashboard')" class="text-[#7A756C] hover:text-black text-lg p-1">✕</button>
+      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto w-full px-6 py-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- Left Column: Form Stepper -->
+      <div class="lg:col-span-4 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">APPLICATION FORM</p>
+          <h2 class="text-xl font-bold tracking-tight text-[#1A1917]">Competition/Award Subsidy Scheme</h2>
+          <p class="text-xs text-[#7A756C] mt-1">September 2025 – August 2026</p>
+        </div>
+
+        <!-- Stepper -->
+        <div class="space-y-4 pt-4 border-t border-[#ECE7DD]">
+          <!-- Step 1 (Active) -->
+          <div class="flex items-start space-x-3">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">01</span>
+            <div>
+              <p class="text-xs font-bold text-[#1A1917]">Your information</p>
+              <p class="text-[11px] text-[#7A756C]">Applicant, study year & programme</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex items-start space-x-3 opacity-60">
+            <span class="w-7 h-7 rounded-full bg-white border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center font-bold text-xs shrink-0">02</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Competition & project</p>
+              <p class="text-[11px] text-[#7A756C]">Award and entry details</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex items-start space-x-3 opacity-60">
+            <span class="w-7 h-7 rounded-full bg-white border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center font-bold text-xs shrink-0">03</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Funding & declaration</p>
+              <p class="text-[11px] text-[#7A756C]">Subsidy request and signatures</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Need Help Box -->
+        <div class="bg-[#ECE7DD]/60 border border-[#DFD8CA] p-4 rounded-2xl flex items-start space-x-3">
+          <span class="text-[#7A756C] text-sm">ⓘ</span>
+          <p class="text-xs text-[#5A564F] leading-relaxed">
+            Need help? Contact the School of Design office before submitting your application.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Step 1 Fields -->
+      <div class="lg:col-span-8 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">PAGE 1 OF 3</p>
+          <h1 class="text-4xl font-extrabold tracking-tight text-[#1A1917]">Your information</h1>
+          <p class="text-xs text-[#5A564F] mt-1">Tell us who is applying and where you are in your PolyU Design studies.</p>
+        </div>
+
+        <!-- Card: Applicant details -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Applicant details</h3>
+            <span class="text-[11px] text-[#7A756C]">Fields marked * are required.</span>
+          </div>
+
+          <!-- Title radio -->
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-2">Title *</label>
+            <div class="flex space-x-3">
+              <label class="flex items-center space-x-2 px-4 py-2 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="title" value="Mr" checked class="text-black focus:ring-black">
+                <span>Mr</span>
+              </label>
+              <label class="flex items-center space-x-2 px-4 py-2 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="title" value="Ms" class="text-black focus:ring-black">
+                <span>Ms</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Full name *</label>
+              <input type="text" id="form-fullname" value="Hugo Tsang" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Student ID *</label>
+              <input type="text" id="form-studentid" value="21098452D" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Telephone number *</label>
+              <input type="text" value="+852 9123 4567" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Email *</label>
+              <input type="email" value="hugo.tsang@connect.polyu.hk" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Study year & programme -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Study year & programme</h3>
+            <span class="text-[11px] text-[#7A756C]">Select your current status and programme.</span>
+          </div>
+
+          <!-- Study year buttons -->
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-2">Current study year *</label>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="study_year" class="mr-1.5"> Year 1
+              </label>
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="study_year" class="mr-1.5"> Year 2
+              </label>
+              <label class="flex items-center justify-center p-2.5 border-2 border-black bg-[#FAF8F5] rounded-xl text-xs font-bold cursor-pointer">
+                <input type="radio" name="study_year" checked class="mr-1.5"> Year 3
+              </label>
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="study_year" class="mr-1.5"> Year 4
+              </label>
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5] col-span-2 sm:col-span-1">
+                <input type="radio" name="study_year" class="mr-1.5"> 2025 grad
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Programme *</label>
+            <select class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black bg-white">
+              <option>BA (Hons) Scheme in Design — Product Design</option>
+              <option>BA (Hons) Scheme in Design — Interaction Design</option>
+              <option>BA (Hons) Scheme in Design — Communication Design</option>
+              <option>BA (Hons) Scheme in Design — Advertising Design</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Programme name (BA graduates only)</label>
+            <input type="text" placeholder="Leave blank if not applicable" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+          </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-[#ECE7DD] flex items-center justify-between">
+          <span class="text-xs text-[#7A756C]">Page 1 of 3</span>
+          <button onclick="navTo('screen-form-2')" class="bg-[#1A1917] text-white text-xs font-semibold px-5 py-2.5 rounded-xl hover:bg-black transition flex items-center space-x-2">
+            <span>Continue</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 3: APPLICATION FORM STEP 2 (#screen-form-2)                       -->
+  <!-- ========================================================================= -->
+  <section id="screen-form-2" class="screen-view hidden min-h-screen bg-[#F5F2EB] flex flex-col">
+    <!-- Top Header Bar -->
+    <header class="border-b border-[#ECE7DD] bg-white px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="font-bold text-sm tracking-tight text-[#1A1917]">PolyU Design</span>
+        <span class="text-xs text-[#7A756C] border-l border-[#ECE7DD] pl-3">Subsidy Scheme</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-xs text-[#7A756C]">Draft • Application ref pending</span>
+        <button onclick="saveDraftNotification()" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-3 py-1.5 rounded-lg transition">Save draft</button>
+        <button onclick="navTo('screen-dashboard')" class="text-[#7A756C] hover:text-black text-lg p-1">✕</button>
+      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto w-full px-6 py-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- Left Column: Form Stepper -->
+      <div class="lg:col-span-4 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">APPLICATION FORM</p>
+          <h2 class="text-xl font-bold tracking-tight text-[#1A1917]">Competition/Award Subsidy Scheme</h2>
+          <p class="text-xs text-[#7A756C] mt-1">September 2025 – August 2026</p>
+        </div>
+
+        <!-- Stepper -->
+        <div class="space-y-4 pt-4 border-t border-[#ECE7DD]">
+          <!-- Step 1 (Complete) -->
+          <div class="flex items-start space-x-3 cursor-pointer" onclick="navTo('screen-form-1')">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Your information</p>
+              <p class="text-[11px] text-[#7A756C]">Applicant, study year & programme</p>
+            </div>
+          </div>
+          <!-- Step 2 (Active) -->
+          <div class="flex items-start space-x-3">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">02</span>
+            <div>
+              <p class="text-xs font-bold text-[#1A1917]">Competition & project</p>
+              <p class="text-[11px] text-[#7A756C]">Award and entry details</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex items-start space-x-3 opacity-60">
+            <span class="w-7 h-7 rounded-full bg-white border border-[#DFD8CA] text-[#7A756C] flex items-center justify-center font-bold text-xs shrink-0">03</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Funding & declaration</p>
+              <p class="text-[11px] text-[#7A756C]">Subsidy request and signatures</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#ECE7DD]/60 border border-[#DFD8CA] p-4 rounded-2xl flex items-start space-x-3">
+          <span class="text-[#7A756C] text-sm">ⓘ</span>
+          <p class="text-xs text-[#5A564F] leading-relaxed">
+            Need help? Contact the School of Design office before submitting your application.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Step 2 Fields -->
+      <div class="lg:col-span-8 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">PAGE 2 OF 3</p>
+          <h1 class="text-4xl font-extrabold tracking-tight text-[#1A1917]">Competition & project</h1>
+          <p class="text-xs text-[#5A564F] mt-1">Add the award information and identify the project being entered.</p>
+        </div>
+
+        <!-- Card: Competition/Award information -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Competition/Award information</h3>
+            <span class="text-[11px] text-[#7A756C]">Use the official published competition details.</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Competition or award title *</label>
+            <input type="text" id="form-awardtitle" value="Red Dot Design Award: Design Concept" placeholder="e.g. Red Dot Design Award" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Official URL *</label>
+            <input type="url" value="https://www.red-dot.org/design-concept" placeholder="https://" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Category (if any)</label>
+              <input type="text" value="Sustainable Furniture & Public Space" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Result announcement date *</label>
+              <input type="date" value="2026-11-20" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+          </div>
+
+          <!-- Recognition level -->
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-2">Recognition level *</label>
+            <div class="grid grid-cols-3 gap-3">
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="recog_level" class="mr-2"> Local
+              </label>
+              <label class="flex items-center justify-center p-2.5 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="recog_level" class="mr-2"> National
+              </label>
+              <label class="flex items-center justify-center p-2.5 border-2 border-black bg-[#FAF8F5] rounded-xl text-xs font-bold cursor-pointer">
+                <input type="radio" name="recog_level" checked class="mr-2"> International
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Project details -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Project details</h3>
+            <span class="text-[11px] text-[#7A756C]">Group members listed here must also be from SD.</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Title of project *</label>
+            <input type="text" id="form-projecttitle" value="Lumen Bench — kinetic solar seating" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-2">Is it a group project? *</label>
+            <div class="flex space-x-3">
+              <label class="flex items-center space-x-2 px-4 py-2 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="group_proj" value="No" class="text-black">
+                <span>No</span>
+              </label>
+              <label class="flex items-center space-x-2 px-4 py-2 border-2 border-black bg-[#FAF8F5] rounded-xl text-xs font-bold cursor-pointer">
+                <input type="radio" name="group_proj" value="Yes" checked class="text-black">
+                <span>Yes</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-2">Is it coursework? *</label>
+            <div class="flex space-x-3">
+              <label class="flex items-center space-x-2 px-4 py-2 border-2 border-black bg-[#FAF8F5] rounded-xl text-xs font-bold cursor-pointer">
+                <input type="radio" name="coursework" value="No" checked class="text-black">
+                <span>No</span>
+              </label>
+              <label class="flex items-center space-x-2 px-4 py-2 border border-[#DFD8CA] rounded-xl text-xs cursor-pointer hover:bg-[#FAF8F5]">
+                <input type="radio" name="coursework" value="Yes" class="text-black">
+                <span>Yes</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-[#ECE7DD] flex items-center justify-between">
+          <button onclick="navTo('screen-form-1')" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+            Back
+          </button>
+          <span class="text-xs text-[#7A756C]">Page 2 of 3</span>
+          <button onclick="navTo('screen-form-3')" class="bg-[#1A1917] text-white text-xs font-semibold px-5 py-2.5 rounded-xl hover:bg-black transition flex items-center space-x-2">
+            <span>Continue</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 4: APPLICATION FORM STEP 3 (#screen-form-3)                       -->
+  <!-- ========================================================================= -->
+  <section id="screen-form-3" class="screen-view hidden min-h-screen bg-[#F5F2EB] flex flex-col">
+    <!-- Top Header Bar -->
+    <header class="border-b border-[#ECE7DD] bg-white px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="font-bold text-sm tracking-tight text-[#1A1917]">PolyU Design</span>
+        <span class="text-xs text-[#7A756C] border-l border-[#ECE7DD] pl-3">Subsidy Scheme</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-xs text-[#7A756C]">Draft • Application ref pending</span>
+        <button onclick="saveDraftNotification()" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-3 py-1.5 rounded-lg transition">Save draft</button>
+        <button onclick="navTo('screen-dashboard')" class="text-[#7A756C] hover:text-black text-lg p-1">✕</button>
+      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto w-full px-6 py-8 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- Left Column: Form Stepper -->
+      <div class="lg:col-span-4 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">APPLICATION FORM</p>
+          <h2 class="text-xl font-bold tracking-tight text-[#1A1917]">Competition/Award Subsidy Scheme</h2>
+          <p class="text-xs text-[#7A756C] mt-1">September 2025 – August 2026</p>
+        </div>
+
+        <div class="space-y-4 pt-4 border-t border-[#ECE7DD]">
+          <!-- Step 1 (Done) -->
+          <div class="flex items-start space-x-3 cursor-pointer" onclick="navTo('screen-form-1')">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Your information</p>
+              <p class="text-[11px] text-[#7A756C]">Applicant, study year & programme</p>
+            </div>
+          </div>
+          <!-- Step 2 (Done) -->
+          <div class="flex items-start space-x-3 cursor-pointer" onclick="navTo('screen-form-2')">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <div>
+              <p class="text-xs font-semibold text-[#1A1917]">Competition & project</p>
+              <p class="text-[11px] text-[#7A756C]">Award and entry details</p>
+            </div>
+          </div>
+          <!-- Step 3 (Active) -->
+          <div class="flex items-start space-x-3">
+            <span class="w-7 h-7 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs shrink-0">03</span>
+            <div>
+              <p class="text-xs font-bold text-[#1A1917]">Funding & declaration</p>
+              <p class="text-[11px] text-[#7A756C]">Subsidy request and signatures</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#ECE7DD]/60 border border-[#DFD8CA] p-4 rounded-2xl flex items-start space-x-3">
+          <span class="text-[#7A756C] text-sm">ⓘ</span>
+          <p class="text-xs text-[#5A564F] leading-relaxed">
+            Need help? Contact the School of Design office before submitting your application.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Step 3 Fields -->
+      <div class="lg:col-span-8 space-y-6">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">PAGE 3 OF 3</p>
+          <h1 class="text-4xl font-extrabold tracking-tight text-[#1A1917]">Funding & declaration</h1>
+          <p class="text-xs text-[#5A564F] mt-1">Confirm the support requested, sign the declaration and send it for endorsement.</p>
+        </div>
+
+        <!-- Card: Applying for -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Applying for</h3>
+            <span class="text-[11px] text-[#7A756C]">Select at least one type of support.</span>
+          </div>
+
+          <!-- Entrance fee checkbox -->
+          <div class="p-4 rounded-xl border border-[#DFD8CA] bg-[#FAF8F5] space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" id="check-fee" checked class="w-4 h-4 rounded text-black focus:ring-black">
+              <div>
+                <p class="text-xs font-bold text-[#1A1917]">Entrance fee subsidy</p>
+                <p class="text-[11px] text-[#7A756C]">Enter the original fee currency and amount.</p>
+              </div>
+            </label>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+              <input type="text" value="EUR 320" placeholder="e.g. EUR 300" class="text-xs px-3.5 py-2 rounded-lg border border-[#DFD8CA] bg-white">
+              <input type="text" value="HK$ 2,750" placeholder="Approx HKD" class="text-xs px-3.5 py-2 rounded-lg border border-[#DFD8CA] bg-white">
+            </div>
+          </div>
+
+          <!-- Shipping allowance checkbox + VALIDATION TRIGGER -->
+          <div class="p-4 rounded-xl border border-[#DFD8CA] bg-[#FAF8F5] space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" id="check-shipping" checked class="w-4 h-4 rounded text-black focus:ring-black">
+              <div>
+                <p class="text-xs font-bold text-[#1A1917]">Shipping allowance</p>
+                <p class="text-[11px] text-[#7A756C]">Provide the estimated amount in Hong Kong dollars (capped at HK$1,000).</p>
+              </div>
+            </label>
+            <div>
+              <div class="relative">
+                <span class="absolute left-3.5 top-2 text-xs text-[#7A756C]">HK$</span>
+                <input type="number" id="input-shipping-amount" value="850" class="w-full text-xs pl-12 pr-3.5 py-2 rounded-lg border border-[#DFD8CA] bg-white focus:outline-none focus:border-black">
+              </div>
+              <!-- Error Message for validation -->
+              <p id="shipping-error" class="hidden text-xs text-[#E5484D] font-medium mt-2 flex items-center space-x-1">
+                <span>⚠️ Error: Shipping support is capped at HK$1,000 per application. Please adjust your amount.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Declaration -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-4">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Declaration</h3>
+            <span class="text-[11px] text-[#7A756C]">Both declarations are required before submission.</span>
+          </div>
+
+          <label class="flex items-start space-x-3 p-3 rounded-xl border border-[#ECE7DD] hover:bg-[#FAF8F5] cursor-pointer">
+            <input type="checkbox" id="decl-1" checked class="mt-0.5 text-black rounded focus:ring-black">
+            <p class="text-xs text-[#5A564F] leading-relaxed">
+              I confirm that this application complies with the terms and regulations of the Scheme document. I understand and agree that should there be any violation of the terms, the application or any approved amount shall be cancelled.
+            </p>
+          </label>
+        </div>
+
+        <!-- Card: Signatures & Endorsement -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-5">
+          <div class="flex items-center justify-between border-b border-[#ECE7DD] pb-3">
+            <h3 class="font-bold text-sm text-[#1A1917]">Signatures & endorsement</h3>
+            <span class="text-[11px] text-[#7A756C]">Your endorser will confirm their signature after submission.</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Signature of applicant *</label>
+              <input type="text" id="signature-input" value="Hugo Tsang" placeholder="Type your full legal name" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+              <span class="text-[10px] text-[#7A756C] mt-1 block">Typing your name acts as your digital signature.</span>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Date of application *</label>
+              <input type="date" value="2026-10-24" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#1A1917] mb-1">Name of academic endorser *</label>
+            <select class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] focus:outline-none focus:border-black bg-white">
+              <option>Prof. Karen Wong — Discipline Leader (Product Design)</option>
+              <option>Dr. Michael Leung — Assistant Professor</option>
+              <option>Prof. Brian Lee — Associate Dean</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-[#FAF8F5] border border-[#ECE7DD] rounded-xl flex items-center space-x-2 text-xs text-[#7A756C]">
+            <span>📄</span>
+            <span>Signature of endorser: pending. The endorser will receive this application after you submit it.</span>
+          </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="bg-white p-4 rounded-2xl border border-[#ECE7DD] flex items-center justify-between">
+          <button onclick="navTo('screen-form-2')" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+            Back
+          </button>
+          <span class="text-xs text-[#7A756C]">Page 3 of 3</span>
+          <button onclick="validateAndSubmitApplication()" class="bg-[#1A1917] hover:bg-black text-white text-xs font-semibold px-6 py-2.5 rounded-xl transition flex items-center space-x-2">
+            <span>Submit for endorsement</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 5: RESULT REPORTING (#screen-reporting)                            -->
+  <!-- ========================================================================= -->
+  <section id="screen-reporting" class="screen-view hidden min-h-screen flex flex-col md:flex-row">
+    <!-- Left Navigation Sidebar -->
+    <aside class="w-full md:w-64 bg-[#EFECE3] border-r border-[#ECE7DD] flex flex-col justify-between shrink-0">
+      <div>
+        <div class="p-6 border-b border-[#ECE7DD]">
+          <p class="text-[10px] uppercase font-bold tracking-wider text-[#7A756C]">POLYU SCHOOL OF DESIGN</p>
+          <h2 class="text-lg font-bold tracking-tight text-[#1A1917] mt-0.5">Subsidy Scheme</h2>
+        </div>
+        <nav class="p-4 space-y-1">
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button onclick="navTo('screen-form-1')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            <span>New application</span>
+          </button>
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <div class="flex items-center space-x-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>My applications</span>
+            </div>
+            <span class="text-[10px] bg-[#DFD8CA] text-[#1A1917] px-1.5 py-0.5 rounded font-bold">4</span>
+          </button>
+          <button onclick="navTo('screen-reporting')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-white shadow-sm font-semibold text-xs text-[#1A1917]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Result reporting</span>
+          </button>
+          <button onclick="navTo('screen-help')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Help & support</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="p-4 border-t border-[#ECE7DD]">
+        <div class="flex items-center space-x-3 p-2 bg-white/70 rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs">HT</div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-[#1A1917] truncate">Hugo Tsang</p>
+            <p class="text-[10px] text-[#7A756C] truncate">Student applicant</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto">
+      <div class="px-8 py-4 border-b border-[#ECE7DD] flex items-center justify-between text-xs text-[#7A756C]">
+        <div>Student portal • Result reporting</div>
+        <div class="flex items-center space-x-4">
+          <button class="hover:text-black"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></button>
+          <div class="w-6 h-6 rounded-full bg-[#1A1917] text-white flex items-center justify-center text-[10px] font-bold">HT</div>
+        </div>
+      </div>
+
+      <div class="p-8 max-w-5xl mx-auto space-y-8">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">POST-COMPETITION REQUIREMENT</p>
+            <h1 class="text-4xl font-extrabold tracking-tight text-[#1A1917] mt-1">Result reporting</h1>
+            <p class="text-sm text-[#5A564F] mt-1 max-w-lg">Report each official competition result within one month of its announcement.</p>
+          </div>
+          <div class="bg-[#FAF8F5] p-3 rounded-xl border border-[#DFD8CA] flex items-center space-x-3 text-xs">
+            <span class="text-lg">⏰</span>
+            <div>
+              <p class="font-bold text-[#1A1917]">One-month reporting window</p>
+              <p class="text-[11px] text-[#7A756C]">Required for every approved application</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Reports due</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">1</p>
+            <p class="text-xs text-[#7A756C] mt-2">Next due 12 Nov 2026</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Awaiting result</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">1</p>
+            <p class="text-xs text-[#7A756C] mt-2">Core77 Design Awards</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-[#ECE7DD]">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">Reports submitted</p>
+            <p class="text-3xl font-extrabold text-[#1A1917] mt-1">1</p>
+            <p class="text-xs text-[#7A756C] mt-2">Across this funding cycle</p>
+          </div>
+        </div>
+
+        <!-- Queue Selector -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-4">
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">YOUR QUEUE</p>
+          <h2 class="text-lg font-bold text-[#1A1917]">Select an application</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Active Card -->
+            <div class="p-5 rounded-xl border-2 border-black bg-[#FAF8F5] cursor-pointer">
+              <div class="flex justify-between items-start">
+                <span class="text-xs text-[#7A756C]">SD-2026-009</span>
+                <span class="text-[10px] bg-[#faeae6] text-[#b33a2b] font-bold px-2 py-0.5 rounded-full">• DUE IN 14 DAYS</span>
+              </div>
+              <h4 class="font-bold text-base mt-2">D&AD Awards</h4>
+              <p class="text-xs text-[#7A756C]">Fold — editorial identity system</p>
+              <p class="text-[11px] text-[#7A756C] mt-4">Report by 12 Nov 2026</p>
+            </div>
+
+            <!-- Inactive Card -->
+            <div class="p-5 rounded-xl border border-[#ECE7DD] opacity-70 hover:opacity-100 transition cursor-pointer">
+              <div class="flex justify-between items-start">
+                <span class="text-xs text-[#7A756C]">SD-2026-018</span>
+                <span class="text-[10px] bg-[#fbf1e0] text-[#966c1b] font-bold px-2 py-0.5 rounded-full">• RESULT PENDING</span>
+              </div>
+              <h4 class="font-bold text-base mt-2">Core77 Design Awards</h4>
+              <p class="text-xs text-[#7A756C]">Ripple — modular seating system</p>
+              <p class="text-[11px] text-[#7A756C] mt-4">Report by 26 Dec 2026</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-[#ECE7DD] flex justify-between items-center text-xs text-[#7A756C]">
+            <div>
+              <span class="font-semibold text-[#1A1917]">iF Design Award</span>
+              <span class="ml-2">SD-2026-004 • Submitted 04 Oct 2026</span>
+            </div>
+            <span class="bg-[#e4efe6] text-[#2e6b3e] text-[10px] font-bold px-2.5 py-0.5 rounded-full">● COMPLETE</span>
+          </div>
+        </div>
+
+        <!-- Result Form for D&AD -->
+        <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-6">
+          <div class="flex justify-between items-start border-b border-[#ECE7DD] pb-4">
+            <div>
+              <span class="text-xs text-[#7A756C]">SD-2026-009</span>
+              <h2 class="text-2xl font-bold text-[#1A1917]">D&AD Awards</h2>
+              <p class="text-xs text-[#7A756C]">Fold — editorial identity system</p>
+            </div>
+            <span class="text-[10px] bg-[#faeae6] text-[#b33a2b] font-bold px-2.5 py-1 rounded-full">● DUE IN 14 DAYS</span>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="font-bold text-sm text-[#1A1917]">Official result</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-[#1A1917] mb-1">Result outcome *</label>
+                <select class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] bg-white">
+                  <option>Won an Award / Pencil</option>
+                  <option>Shortlisted / Finalist</option>
+                  <option>No award received</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-[#1A1917] mb-1">Official announcement date *</label>
+                <input type="date" value="2026-10-12" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA]">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Award title or result category</label>
+              <input type="text" value="Wood Pencil — Graphic Design / Editorial" placeholder="e.g. Bronze Award, Student Category" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA]">
+            </div>
+          </div>
+
+          <div class="space-y-4 pt-4 border-t border-[#ECE7DD]">
+            <h3 class="font-bold text-sm text-[#1A1917]">Supporting evidence</h3>
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Official result URL</label>
+              <input type="url" value="https://www.dandad.org/winners-2026/fold-identity" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA]">
+            </div>
+
+            <!-- Upload Area -->
+            <div class="border-2 border-dashed border-[#DFD8CA] rounded-2xl p-6 text-center hover:bg-[#FAF8F5] transition cursor-pointer">
+              <span class="text-2xl block mb-1">📄</span>
+              <p class="text-xs font-bold text-[#1A1917]">Upload result evidence</p>
+              <p class="text-[11px] text-[#7A756C] mt-0.5">PDF, JPG or PNG • maximum 10 MB</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-[#1A1917] mb-1">Additional notes</label>
+              <textarea rows="2" placeholder="Add any context the School team should know" class="w-full text-xs p-3 rounded-xl border border-[#DFD8CA]"></textarea>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-[#ECE7DD] space-y-4">
+            <label class="flex items-start space-x-3 p-3 rounded-xl border border-[#ECE7DD] hover:bg-[#FAF8F5] cursor-pointer">
+              <input type="checkbox" checked class="mt-0.5 text-black rounded focus:ring-black">
+              <p class="text-xs text-[#5A564F]">I confirm that the result and supporting information provided are accurate and match the organiser's official announcement.</p>
+            </label>
+
+            <div class="flex justify-between items-center pt-2">
+              <button onclick="navTo('screen-dashboard')" class="border border-[#DFD8CA] hover:bg-[#FAF8F5] text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+                Save draft
+              </button>
+              <button onclick="submitReportSuccess()" class="bg-[#1A1917] hover:bg-black text-white text-xs font-semibold px-6 py-2.5 rounded-xl transition flex items-center space-x-2">
+                <span>Submit result report</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCREEN 6: HELP & SUPPORT (#screen-help)                                   -->
+  <!-- ========================================================================= -->
+  <section id="screen-help" class="screen-view hidden min-h-screen flex flex-col md:flex-row">
+    <!-- Left Navigation Sidebar -->
+    <aside class="w-full md:w-64 bg-[#EFECE3] border-r border-[#ECE7DD] flex flex-col justify-between shrink-0">
+      <div>
+        <div class="p-6 border-b border-[#ECE7DD]">
+          <p class="text-[10px] uppercase font-bold tracking-wider text-[#7A756C]">POLYU SCHOOL OF DESIGN</p>
+          <h2 class="text-lg font-bold tracking-tight text-[#1A1917] mt-0.5">Subsidy Scheme</h2>
+        </div>
+        <nav class="p-4 space-y-1">
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button onclick="navTo('screen-form-1')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            <span>New application</span>
+          </button>
+          <button onclick="navTo('screen-dashboard')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <div class="flex items-center space-x-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>My applications</span>
+            </div>
+            <span class="text-[10px] bg-[#DFD8CA] text-[#1A1917] px-1.5 py-0.5 rounded font-bold">4</span>
+          </button>
+          <button onclick="navTo('screen-reporting')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl hover:bg-white/60 font-medium text-xs text-[#5A564F] transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Result reporting</span>
+          </button>
+          <button onclick="navTo('screen-help')" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl bg-white shadow-sm font-semibold text-xs text-[#1A1917]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Help & support</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="p-4 border-t border-[#ECE7DD]">
+        <div class="flex items-center space-x-3 p-2 bg-white/70 rounded-xl">
+          <div class="w-8 h-8 rounded-full bg-[#1A1917] text-white flex items-center justify-center font-bold text-xs">HT</div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-[#1A1917] truncate">Hugo Tsang</p>
+            <p class="text-[10px] text-[#7A756C] truncate">Student applicant</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto">
+      <div class="px-8 py-4 border-b border-[#ECE7DD] flex items-center justify-between text-xs text-[#7A756C]">
+        <div>Student portal • Help & support</div>
+        <div class="w-6 h-6 rounded-full bg-[#1A1917] text-white flex items-center justify-center text-[10px] font-bold">HT</div>
+      </div>
+
+      <div class="p-8 max-w-5xl mx-auto space-y-10">
+        <!-- Hero Search Box -->
+        <div class="bg-[#ECE7DD] rounded-3xl p-8 md:p-12 text-center space-y-4">
+          <p class="text-xs uppercase tracking-wider font-semibold text-[#7A756C]">STUDENT SUPPORT</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1A1917]">How can we help?</h1>
+          <p class="text-sm text-[#5A564F] max-w-md mx-auto">Find answers about applications, endorsements, reimbursements and result reporting.</p>
+          <div class="max-w-lg mx-auto relative pt-2">
+            <span class="absolute left-4 top-5 text-gray-400">🔍</span>
+            <input type="text" placeholder="Search help articles" class="w-full text-xs pl-11 pr-4 py-3 rounded-full border border-[#DFD8CA] bg-white shadow-sm focus:outline-none focus:border-black">
+          </div>
+        </div>
+
+        <!-- 3 Category Cards -->
+        <div>
+          <p class="text-[10px] uppercase font-bold text-[#7A756C] mb-1">BROWSE BY TOPIC</p>
+          <h2 class="text-2xl font-bold tracking-tight text-[#1A1917] mb-4">Start with a category</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] flex flex-col justify-between space-y-4">
+              <div>
+                <span class="w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] flex items-center justify-center text-sm mb-3">📄</span>
+                <h3 class="font-bold text-sm text-[#1A1917]">Application & eligibility</h3>
+                <p class="text-xs text-[#5A564F] mt-1 leading-relaxed">Who can apply, what is covered and how to prepare your form.</p>
+              </div>
+              <a href="#faq" class="text-xs font-semibold text-[#1A1917] flex items-center space-x-1">
+                <span>View answers</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] flex flex-col justify-between space-y-4">
+              <div>
+                <span class="w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] flex items-center justify-center text-sm mb-3">⏰</span>
+                <h3 class="font-bold text-sm text-[#1A1917]">Endorsement & decisions</h3>
+                <p class="text-xs text-[#5A564F] mt-1 leading-relaxed">Faculty endorsement, review timing and returned revisions.</p>
+              </div>
+              <a href="#faq" class="text-xs font-semibold text-[#1A1917] flex items-center space-x-1">
+                <span>View answers</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] flex flex-col justify-between space-y-4">
+              <div>
+                <span class="w-8 h-8 rounded-full bg-[#FAF8F5] border border-[#DFD8CA] flex items-center justify-center text-sm mb-3">💳</span>
+                <h3 class="font-bold text-sm text-[#1A1917]">Reimbursement & results</h3>
+                <p class="text-xs text-[#5A564F] mt-1 leading-relaxed">Receipts, approved payments and competition result reporting.</p>
+              </div>
+              <a href="#faq" class="text-xs font-semibold text-[#1A1917] flex items-center space-x-1">
+                <span>View answers</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div id="faq" class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-4">
+          <p class="text-[10px] uppercase font-bold text-[#7A756C]">FREQUENTLY ASKED</p>
+          <h2 class="text-xl font-bold tracking-tight text-[#1A1917]">Common questions</h2>
+
+          <div class="divide-y divide-[#ECE7DD]">
+            <!-- Q1 (expanded) -->
+            <div class="py-4">
+              <button onclick="toggleFaq('faq-1')" class="w-full flex justify-between items-center text-left font-bold text-sm text-[#1A1917]">
+                <span>Who is eligible to apply for the subsidy scheme?</span>
+                <span id="faq-1-icon" class="text-lg">−</span>
+              </button>
+              <div id="faq-1-content" class="mt-2 text-xs text-[#5A564F] leading-relaxed">
+                Current full-time PolyU School of Design students may apply. Exchange students are not eligible. Group projects should be submitted by one student representative.
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="py-4">
+              <button onclick="toggleFaq('faq-2')" class="w-full flex justify-between items-center text-left font-bold text-sm text-[#1A1917]">
+                <span>What expenses can I request support for?</span>
+                <span id="faq-2-icon" class="text-lg">+</span>
+              </button>
+              <div id="faq-2-content" class="hidden mt-2 text-xs text-[#5A564F] leading-relaxed">
+                You can apply for entrance fee subsidies as well as physical shipping allowances for mailing prototypes/exhibits to organisers (capped at HK$1,000 per application).
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="py-4">
+              <button onclick="toggleFaq('faq-3')" class="w-full flex justify-between items-center text-left font-bold text-sm text-[#1A1917]">
+                <span>Can a group project receive support?</span>
+                <span id="faq-3-icon" class="text-lg">+</span>
+              </button>
+              <div id="faq-3-content" class="hidden mt-2 text-xs text-[#5A564F] leading-relaxed">
+                Yes. Group projects must nominate one principal applicant from the School of Design. All group members must also be SD students.
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="py-4">
+              <button onclick="toggleFaq('faq-4')" class="w-full flex justify-between items-center text-left font-bold text-sm text-[#1A1917]">
+                <span>What happens after I submit my application?</span>
+                <span id="faq-4-icon" class="text-lg">+</span>
+              </button>
+              <div id="faq-4-content" class="hidden mt-2 text-xs text-[#5A564F] leading-relaxed">
+                Your designated academic endorser will review and sign the application digitally, followed by administrative verification by the School of Design office.
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="py-4">
+              <button onclick="toggleFaq('faq-5')" class="w-full flex justify-between items-center text-left font-bold text-sm text-[#1A1917]">
+                <span>When do I need to report my competition result?</span>
+                <span id="faq-5-icon" class="text-lg">+</span>
+              </button>
+              <div id="faq-5-content" class="hidden mt-2 text-xs text-[#5A564F] leading-relaxed">
+                You must submit the official competition results and evidence within one month of the organiser's announcement via the Result Reporting tab.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Grid: Useful references + Contact Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Useful References -->
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-4">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">SCHEME GUIDE</p>
+            <h3 class="text-lg font-bold text-[#1A1917]">Useful references</h3>
+            <div class="divide-y divide-[#ECE7DD] text-xs">
+              <a href="#" class="py-3 flex justify-between items-center text-[#1A1917] hover:text-black">
+                <div class="flex items-center space-x-2">
+                  <span>📄</span>
+                  <span>Application checklist</span>
+                </div>
+                <span>›</span>
+              </a>
+              <a href="#" class="py-3 flex justify-between items-center text-[#1A1917] hover:text-black">
+                <div class="flex items-center space-x-2">
+                  <span>💳</span>
+                  <span>Funding & reimbursement</span>
+                </div>
+                <span>›</span>
+              </a>
+              <a href="#" class="py-3 flex justify-between items-center text-[#1A1917] hover:text-black">
+                <div class="flex items-center space-x-2">
+                  <span>📅</span>
+                  <span>Result reporting guide</span>
+                </div>
+                <span>›</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Team Form -->
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE7DD] space-y-4">
+            <p class="text-[10px] uppercase font-bold text-[#7A756C]">STILL NEED HELP?</p>
+            <h3 class="text-lg font-bold text-[#1A1917]">Contact the School team</h3>
+            <p class="text-xs text-[#7A756C]">Send your question with the relevant application reference, if available.</p>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-medium text-[#1A1917] mb-1">Support topic</label>
+                <select class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA] bg-white">
+                  <option>Application status & revisions</option>
+                  <option>Reimbursement calculation</option>
+                  <option>Competition eligibility confirmation</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-[#1A1917] mb-1">Application reference (optional)</label>
+                <input type="text" placeholder="e.g. SD-2026-018" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#DFD8CA]">
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-[#1A1917] mb-1">Your question</label>
+                <textarea rows="3" class="w-full text-xs p-3 rounded-xl border border-[#DFD8CA]"></textarea>
+              </div>
+              <button onclick="sendSupportToast()" class="w-full bg-[#1A1917] hover:bg-black text-white text-xs font-semibold py-3 rounded-xl transition flex justify-center items-center space-x-1.5">
+                <span>Send support request</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- TOAST NOTIFICATION MODAL                                                  -->
+  <!-- ========================================================================= -->
+  <div id="toast" class="fixed bottom-6 right-6 max-w-sm bg-[#1A1917] text-white p-4 rounded-2xl shadow-xl flex items-center space-x-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-3 z-50">
+    <span class="text-xl" id="toast-icon">✓</span>
+    <div class="flex-1 text-xs">
+      <p class="font-bold text-sm" id="toast-title">Success</p>
+      <p class="text-gray-300 mt-0.5" id="toast-msg">Operation completed.</p>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- SPA NAVIGATION & INTERACTION CONTROLLER (Vanilla JavaScript)              -->
+  <!-- ========================================================================= -->
+  <script>
+    // State Router
+    function navTo(screenId) {
+      const screens = document.querySelectorAll('.screen-view');
+      screens.forEach(screen => {
+        screen.classList.add('hidden');
+      });
+
+      const target = document.getElementById(screenId);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Interactive Toast Notification
+    function showToast(title, msg, icon = '✓') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-msg').textContent = msg;
+      document.getElementById('toast-icon').textContent = icon;
+
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+      }, 4000);
+    }
+
+    function saveDraftNotification() {
+      showToast('Draft Saved', 'Your current application draft has been saved to your account.');
+    }
+
+    function sendSupportToast() {
+      showToast('Message Sent', 'Our School of Design team will respond within 2 working days.');
+    }
+
+    function submitReportSuccess() {
+      showToast('Result Reported', 'Your competition result has been recorded successfully.');
+      setTimeout(() => {
+        navTo('screen-dashboard');
+      }, 1200);
+    }
+
+    // Step 3 Validation Check: HK$1,000 Shipping Cap Rule
+    function validateAndSubmitApplication() {
+      const isShippingChecked = document.getElementById('check-shipping').checked;
+      const shippingAmountInput = document.getElementById('input-shipping-amount');
+      const shippingError = document.getElementById('shipping-error');
+      const val = parseFloat(shippingAmountInput.value) || 0;
+
+      if (isShippingChecked && val > 1000) {
+        // Show validation warning and prevent navigation
+        shippingError.classList.remove('hidden');
+        shippingAmountInput.classList.add('border-[#E5484D]', 'ring-1', 'ring-[#E5484D]');
+        shippingAmountInput.focus();
+        showToast('Validation Failed', 'Shipping amount exceeds the HK$1,000 subsidy ceiling.', '⚠️');
+        return;
+      }
+
+      // If valid, clear warning and proceed
+      shippingError.classList.add('hidden');
+      shippingAmountInput.classList.remove('border-[#E5484D]', 'ring-1', 'ring-[#E5484D]');
+
+      showToast('Application Submitted!', 'Sent to Prof. Karen Wong for faculty endorsement.');
+      setTimeout(() => {
+        navTo('screen-dashboard');
+      }, 1500);
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(id) {
+      const content = document.getElementById(`${id}-content`);
+      const icon = document.getElementById(`${id}-icon`);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+      } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+
+    // Ensure initial screen is Landing or Dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+      // Default to landing page; change to 'screen-dashboard' if preferred
+      navTo('screen-landing');
+    });
+  </script>
+</body>
+</html>
