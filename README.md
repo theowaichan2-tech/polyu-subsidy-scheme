@@ -1,4 +1,4 @@
-[index2.html](https://github.com/user-attachments/files/34469385/index2.html)
+[Uploading index2.html…]()
 <!DOCTYPE html>
 <html lang="en">
 <head>
