@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subsidy Scheme · PolyU School of Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            page: '#f6f1eb',
+            sand: '#eee7de',
+            sandDeep: '#e7dccd',
+            card: '#fcf9f4',
+            ink: '#23251f',
+            inkSoft: '#3a3c36',
+            muted: '#6f6c66',
+            faint: '#9a958d',
+            line: '#e4ddd2',
+            olive: '#626b4b',
+            oliveSoft: '#e3e7d5',
+            oliveText: '#4f5a37',
+            rose: '#f2dfda',
+            roseText: '#a5463b',
+            honey: '#f0e8d7',
+            honeyText: '#85672c',
+            stone: '#ece9e4',
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+            manrope: ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 1px 2px rgba(35,37,31,0.04), 0 8px 24px rgba(35,37,31,0.05)',
+            bar: '0 -8px 24px rgba(35,37,31,0.06)',
+          },
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .eyebrow { @apply text-[11px] font-medium uppercase tracking-[0.08em] text-muted; }
+      .card { @apply rounded-[16px] border border-line bg-card shadow-card; }
+      .btn { @apply inline-flex items-center justify-center gap-2 rounded-[8px] px-4 h-10 text-[14px] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:cursor-not-allowed; }
+      .btn-dark { @apply btn bg-ink text-white hover:bg-inkSoft disabled:bg-[#b9b6b0] disabled:text-white; }
+      .btn-line { @apply btn border border-[#d8d1c6] bg-white text-ink hover:bg-page; }
+      .icon-btn { @apply inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-sand focus:outline-none focus-visible:ring-2 focus-visible:ring-olive; }
+      .label { @apply mb-2 block text-[13px] font-medium text-ink; }
+      .field { @apply h-12 w-full rounded-[8px] border border-[#d8d1c6] bg-white px-4 text-[14px] text-ink placeholder:text-faint focus:border-olive focus:outline-none focus:ring-2 focus:ring-olive/30 aria-[invalid=true]:border-roseText aria-[invalid=true]:ring-roseText/20; }
+      .choice { @apply flex cursor-pointer items-center gap-3 rounded-[8px] border border-line bg-[#f7f4ee] px-4 py-4 text-[14px] text-ink transition hover:border-[#cfc6b8] has-[:checked]:border-olive has-[:checked]:bg-oliveSoft/60 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-olive; }
+      .choice input { @apply h-5 w-5 shrink-0 accent-olive; }
+      .pill { @apply inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.04em]; }
+      .nav-link { @apply flex w-full items-center gap-3 rounded-[8px] px-4 py-3 text-[14px] text-inkSoft transition hover:bg-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive aria-[current=page]:bg-white aria-[current=page]:font-medium aria-[current=page]:text-ink aria-[current=page]:shadow-card; }
+      .err { @apply mt-2 flex items-center gap-1 text-[12px] font-medium text-roseText; }
+      .h-display { @apply font-semibold tracking-[-0.03em] text-ink; }
+      .rail { @apply -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0; scrollbar-width: none; }
+      .rail > * { @apply w-[78%] shrink-0 snap-start md:w-auto; }
+    }
+    .rail::-webkit-scrollbar { display: none; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-page font-manrope text-ink antialiased xl:font-inter">
+  <a href="#main" class="sr-only z-[100] rounded-[8px] bg-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
+  <!-- ============ SIDE DRAWER (hidden until the hamburger is pressed) ============ -->
+  <div id="scrim" class="fixed inset-0 z-40 hidden bg-[#23251f]/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300" aria-hidden="true"></div>
+  <aside id="drawer" class="fixed inset-y-0 left-0 z-50 flex w-[300px] max-w-[86vw] -translate-x-full flex-col bg-sand shadow-[8px_0_32px_rgba(35,37,31,0.12)] transition-transform duration-300 ease-out" aria-label="Portal navigation" role="dialog" aria-modal="true" inert>
+    <div class="flex items-start justify-between px-6 pb-6 pt-6">
+      <div>
+        <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-muted">PolyU School of Design</p>
+        <p class="mt-1 text-[18px] font-semibold tracking-[-0.01em]">Subsidy Scheme</p>
+      </div>
+      <button id="drawerClose" class="icon-btn -mr-2 -mt-2" aria-label="Close menu"><i data-icon="x" class="h-5 w-5"></i></button>
+    </div>
+    <div class="mx-6 flex items-center gap-3 border-y border-[#ddd3c5] py-4">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-olive text-[12px] font-semibold text-white">HT</span>
+      <div class="leading-tight">
+        <p class="text-[14px] font-semibold">Hugo Tsang</p>
+        <p class="text-[12px] text-muted">Student applicant</p>
+      </div>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Primary">
+      <ul class="space-y-1">
+        <li><a href="#/dashboard" data-nav="dashboard" class="nav-link"><i data-icon="grid" class="h-[18px] w-[18px]"></i>Dashboard</a></li>
+        <li><a href="#/form-1" data-nav="form" class="nav-link"><i data-icon="plus" class="h-[18px] w-[18px]"></i>New application</a></li>
+        <li><a href="#/dashboard" data-scroll-to="tracker" class="nav-link"><i data-icon="file" class="h-[18px] w-[18px]"></i>My applications<span id="navCount" class="ml-auto rounded-[6px] bg-[#e2d8ca] px-2 py-[2px] text-[11px] font-semibold text-inkSoft">4</span></a></li>
+        <li><a href="#/dashboard" data-scroll-to="allowance" class="nav-link"><i data-icon="wallet" class="h-[18px] w-[18px]"></i>Reimbursement</a></li>
+        <li><a href="#/reporting" data-nav="reporting" class="nav-link"><i data-icon="calendar" class="h-[18px] w-[18px]"></i>Result reporting</a></li>
+        <li><a href="#/help" data-nav="help" class="nav-link"><i data-icon="help" class="h-[18px] w-[18px]"></i>Help &amp; support</a></li>
+      </ul>
+    </nav>
+    <div class="border-t border-[#ddd3c5] px-4 py-4">
+      <a href="#/landing" class="nav-link text-muted"><i data-icon="logout" class="h-[18px] w-[18px]"></i>Sign out</a>
+    </div>
+  </aside>
+  <!-- ============ PORTAL TOP BAR ============ -->
+  <header id="portalBar" class="sticky top-0 z-30 hidden border-b border-line bg-page/90 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-[1200px] items-center gap-2 px-4 md:px-8">
+      <button id="menuBtn" class="icon-btn -ml-2" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i data-icon="menu" class="h-5 w-5"></i></button>
+      <a href="#/dashboard" class="leading-tight">
+        <span class="block text-[15px] font-semibold tracking-[-0.01em]">PolyU Design</span>
+        <span class="block text-[11px] text-muted">Subsidy Scheme</span>
+      </a>
+      <p class="ml-6 hidden items-center gap-2 border-l border-line pl-6 text-[13px] text-muted lg:flex">Student portal <span class="h-1 w-1 rounded-full bg-faint"></span> <span id="crumb" class="text-ink">Dashboard</span></p>
+      <div class="ml-auto flex items-center gap-1">
+        <button class="icon-btn" aria-label="Search" data-go="help" data-focus="helpSearch"><i data-icon="search" class="h-[18px] w-[18px]"></i></button>
+        <button class="icon-btn relative" aria-label="Notifications, 2 new" data-toast="2 items need your action: Red Dot revision and D&amp;AD result."><i data-icon="bell" class="h-[18px] w-[18px]"></i><span class="absolute right-[10px] top-[9px] h-2 w-2 rounded-full border-2 border-page bg-roseText"></span></button>
+        <button class="ml-1 flex h-9 w-9 items-center justify-center rounded-full bg-olive text-[11px] font-semibold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2" aria-label="Account: Hugo Tsang" data-open-drawer>HT</button>
+      </div>
+    </div>
+  </header>
+  <!-- ============ APPLICATION FORM TOP BAR ============ -->
+  <header id="formBar" class="sticky top-0 z-30 hidden border-b border-line bg-page/90 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-[1200px] items-center gap-4 px-4 md:px-8">
+      <a href="#/dashboard" class="flex items-center gap-4 leading-tight">
+        <span>
+          <span class="block text-[16px] font-semibold tracking-[-0.01em] xl:text-[18px]">PolyU Design</span>
+          <span class="block text-[11px] text-muted xl:hidden">Subsidy Scheme</span>
+        </span>
+        <span class="hidden border-l border-line pl-4 text-[13px] font-medium xl:block">Subsidy Scheme</span>
+      </a>
+      <p id="draftStatus" class="ml-auto hidden text-[13px] text-muted md:block">Draft · Application ref pending</p>
+      <button class="btn-line ml-auto h-9 px-3 text-[13px] md:ml-0" data-save-draft>Save draft</button>
+      <a href="#/dashboard" class="icon-btn -mr-2" aria-label="Close application and return to dashboard"><i data-icon="x" class="h-5 w-5"></i></a>
+    </div>
+  </header>
+  <main id="main" tabindex="-1" class="focus:outline-none">
+    <!-- ===================== SCREEN 00 · LANDING ===================== -->
+    <section id="landing" data-screen aria-label="Scheme overview" class="font-inter">
+      <header class="sticky top-0 z-30 border-b border-line bg-page/90 backdrop-blur">
+        <div class="mx-auto flex h-16 max-w-[1200px] items-center px-5 md:px-8">
+          <div class="leading-tight">
+            <p class="text-[10px] font-medium uppercase tracking-[0.08em] text-muted">PolyU School of Design</p>
+            <p class="text-[13px] font-medium">Competition/Award Subsidy Scheme</p>
+          </div>
+          <nav class="mx-auto hidden gap-8 text-[13px] text-inkSoft md:flex" aria-label="Page sections">
+            <button data-jump="l-about" class="hover:text-ink focus:outline-none focus-visible:underline">About</button>
+            <button data-jump="l-eligibility" class="hover:text-ink focus:outline-none focus-visible:underline">Eligibility</button>
+            <button data-jump="l-how" class="hover:text-ink focus:outline-none focus-visible:underline">How it works</button>
+            <button data-jump="l-faq" class="hover:text-ink focus:outline-none focus-visible:underline">FAQ</button>
+          </nav>
+          <a href="#/dashboard" class="btn-dark ml-auto h-9 px-4 text-[13px] md:ml-0">Student portal <i data-icon="arrow" class="h-4 w-4"></i></a>
+        </div>
+      </header>
