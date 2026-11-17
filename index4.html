@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PolyU Design · Competition/Award Subsidy Scheme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --bg-soft: #ebe6dc;
+      --bg-cover: #efebe3;
+      --bg-cta: #d9e0d4;
+      --bg-footer: #efeae2;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6560;
+      --border: #d9d2c6;
+      --primary: #222222;
+      --success: #4a5d45;
+      --success-soft: #e4ebe2;
+      --danger: #8b3a3a;
+      --danger-soft: #f3e0e0;
+      --radius: 14px;
+      --max: 72rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, summary { font: inherit; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+      backdrop-filter: blur(10px);
+    }
+    .site-header__inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand-kicker {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .brand-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .nav-desktop {
+      display: none;
+      gap: 1.75rem;
+      margin-left: auto;
+      font-size: 0.925rem;
+      font-weight: 500;
+    }
+    .nav-desktop a { color: color-mix(in srgb, var(--text) 80%, transparent); }
+    .nav-desktop a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 2.75rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: 0.75rem;
+      border: 1px solid transparent;
+      font-size: 0.925rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #111; }
+    .btn-outline {
+      background: transparent;
+      border-color: color-mix(in srgb, var(--text) 80%, transparent);
+      color: var(--text);
+    }
+    .btn-outline:hover { background: color-mix(in srgb, var(--bg-soft) 60%, transparent); }
+    .btn-icon {
+      width: 2.5rem;
+      min-height: 2.5rem;
+      padding: 0;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .header-portal { margin-left: auto; }
+    .menu-toggle { display: inline-flex; }
+
+    /* Mobile drawer */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .drawer {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 60;
+      width: min(88vw, 320px);
+      background: #f3efe7;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      transform: translateX(-100%);
+      pointer-events: none;
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer.is-open {
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .drawer__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .drawer nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 0.75rem;
+    }
+    .drawer nav a {
+      padding: 0.85rem 0.75rem;
+      border-radius: 0.85rem;
+      font-weight: 500;
+    }
+    .drawer nav a:hover { background: rgba(255,255,255,0.7); }
+    .drawer .btn-primary { margin: 0.75rem; }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    }
+    .hero__media {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      background: #222;
+    }
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+    .eyebrow {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero h1 {
+      margin: 1rem 0 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero__lead {
+      margin: 1rem 0 0;
+      max-width: 28rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .hero__actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* Stats */
+    .stats {
+      background: var(--primary);
+      color: #fff;
+    }
+    .stats__grid {
+      display: grid;
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .stats strong {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    .stats span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Sections */
+    section { padding: 3.5rem 0; }
+    .section-label {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section-title {
+      margin: 0.5rem 0 0;
+      font-size: clamp(1.75rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+    .section-copy {
+      margin: 0.75rem 0 0;
+      max-width: 24rem;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .step-num {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+      display: grid;
+      place-items: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--bg);
+    }
+    .step h3 { margin: 1rem 0 0; font-size: 1.125rem; }
+    .step p { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.925rem; }
+
+    .eligibility { background: var(--bg-soft); }
+    .eligibility__grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-top: 0;
+    }
+    .eligibility__cards {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .elig-card {
+      background: var(--bg);
+      border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .badge {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-yes { background: var(--success-soft); color: var(--success); }
+    .badge-no { background: var(--danger-soft); color: var(--danger); }
+    .elig-card h3 { margin: 0.75rem 0 0; font-size: 1rem; }
+    .elig-card p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.925rem; }
+
+    .covers {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .cover-card {
+      position: relative;
+      background: var(--bg-cover);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .cover-card .n {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    .cover-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      background: var(--card);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+    .cover-card h3 { margin: 0; font-size: 1.25rem; }
+    .cover-card p { margin: 0.5rem 0 0; color: var(--muted); }
+
+    .levels {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .levels__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.925rem;
+      font-weight: 500;
+    }
+
+    .faq { background: color-mix(in srgb, var(--card) 40%, var(--bg)); border-block: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+    .faq__grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    .faq-list {
+      border-block: 1px solid var(--border);
+    }
+    details {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    details:last-child { border-bottom: 0; }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .faq-toggle {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1.125rem;
+    }
+    details[open] .faq-toggle {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    details[open] .faq-toggle .plus { display: none; }
+    details:not([open]) .faq-toggle .minus { display: none; }
+    details p {
+      margin: 0.75rem 0 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+    }
+
+    .cta-box {
+      background: var(--bg-cta);
+      border-radius: 1.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .cta-box .eyebrow { color: color-mix(in srgb, var(--text) 70%, transparent); }
+    .cta-box p {
+      margin: 0.75rem 0 0;
+      max-width: 36rem;
+      color: var(--muted);
+    }
+    .cta-box .btn { margin-top: 1.5rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-footer);
+      padding: 2rem 0;
+    }
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .footer__inner p { margin: 0; }
+    .muted { color: var(--muted); }
+
+    @media (min-width: 640px) {
+      .hero__media { min-height: 360px; }
+      .hero__content { padding: 3.5rem 2rem; }
+      .hero__actions { flex-direction: row; }
+      .stats__grid { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .eligibility__cards { grid-template-columns: repeat(2, 1fr); }
+      .covers { grid-template-columns: repeat(2, 1fr); }
+      .levels { flex-direction: row; align-items: center; justify-content: space-between; }
+      .cta-box { padding: 2.5rem; }
+      .footer__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-toggle { display: none; }
+      .nav-desktop { display: flex; }
+      .header-portal { margin-left: 1rem; }
+      .hero { grid-template-columns: 1fr 1fr; }
+      .hero__media { min-height: 480px; }
+      .hero__content { padding: 4rem 3rem; }
+      .steps { grid-template-columns: repeat(4, 1fr); position: relative; }
+      .steps::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1.25rem;
+        height: 1px;
+        background: var(--border);
+      }
+      .eligibility__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+      .faq__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <button class="btn btn-icon menu-toggle" type="button" aria-label="Open navigation menu" id="menuOpen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <a href="homepage.html" class="brand">
+        <p class="brand-kicker">PolyU School of Design</p>
+        <p class="brand-title">Competition/Award Subsidy Scheme</p>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="btn btn-primary header-portal" href="/portal">
+        Student portal
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__top">
+      <div>
+        <p class="brand-kicker">PolyU School of Design</p>
+        <p class="brand-title">Subsidy Scheme</p>
+      </div>
+      <button class="btn btn-icon" type="button" aria-label="Close menu" id="menuClose">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#eligibility">Eligibility</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="/portal">Student portal</a>
+  </aside>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero__media">
+        <img src="public/images/hero-polyu-design.jpg" alt="Abstract PolyU Design hero graphic" />
+      </div>
+      <div class="hero__content">
+        <p class="eyebrow">PolyU School of Design / Competition/Award Subsidy Scheme</p>
+        <h1>Take your design work further.</h1>
+        <p class="hero__lead">
+          Financial support for PolyU Design students entering recognised competitions and awards.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="/portal">Apply through the portal →</a>
+          <a class="btn btn-outline" href="#how-it-works">Explore the scheme</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container stats__grid">
+        <div><strong>2</strong><span>Support types</span></div>
+        <div><strong>3</strong><span>Recognition levels</span></div>
+        <div><strong>1 month</strong><span>Result reporting</span></div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">From application to reimbursement.</h2>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01</div>
+            <h3>Apply</h3>
+            <p>Submit competition, project and requested funding details through the portal.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">02</div>
+            <h3>Review</h3>
+            <p>A faculty endorser and the School review your request.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">03</div>
+            <h3>Subsidy</h3>
+            <p>Receive the decision and submit eligible receipts for reimbursement.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">04</div>
+            <h3>Report results</h3>
+            <p>Report the official outcome within one month of announcement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="eligibility" id="eligibility">
+      <div class="container eligibility__grid">
+        <div>
+          <p class="section-label">Eligibility</p>
+          <h2 class="section-title">Check before you begin.</h2>
+          <p class="section-copy">Every application should meet these core requirements before you start a draft.</p>
+        </div>
+        <div class="eligibility__cards">
+          <article class="elig-card">
+            <span class="badge badge-yes">Yes</span>
+            <h3>Current student</h3>
+            <p>You are a current full-time PolyU School of Design student.</p>
+          </article>
+          <article class="elig-card">
+            <span class="badge badge-yes">Yes</span>
+            <h3>Recognised opportunity</h3>
+            <p>The competition or award has professional recognition.</p>
+          </article>
+          <article class="elig-card">
+            <span class="badge badge-yes">Yes</span>
+            <h3>Original funding request</h3>
+            <p>The entry is not already supported by another scheme.</p>
+          </article>
+          <article class="elig-card">
+            <span class="badge badge-no">No</span>
+            <h3>Exchange student</h3>
+            <p>Exchange students are not eligible for this scheme.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="section-label">What the subsidy covers</p>
+        <h2 class="section-title">Support for entering and presenting your work.</h2>
+        <div class="covers">
+          <article class="cover-card">
+            <span class="n">01</span>
+            <div class="cover-icon" aria-hidden="true">🎫</div>
+            <h3>Entrance fee subsidy</h3>
+            <p>Request support for an eligible competition or award entry fee.</p>
+          </article>
+          <article class="cover-card">
+            <span class="n">02</span>
+            <div class="cover-icon" aria-hidden="true">📦</div>
+            <h3>Shipping allowance</h3>
+            <p>Request support for sending physical work to an organiser.</p>
+          </article>
+        </div>
+        <div class="levels">
+          <p class="section-label">Recognition levels</p>
+          <div class="levels__items">
+            <span>Local</span>
+            <span>National</span>
+            <span>International</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container faq__grid">
+        <div>
+          <p class="section-label">Frequently asked</p>
+          <h2 class="section-title">Questions before applying.</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>
+              Who can apply?
+              <span class="faq-toggle"><span class="plus">+</span><span class="minus">−</span></span>
+            </summary>
+            <p>Current full-time PolyU School of Design students may apply. Exchange students are not eligible.</p>
+          </details>
+          <details>
+            <summary>
+              What support can I request?
+              <span class="faq-toggle"><span class="plus">+</span><span class="minus">−</span></span>
+            </summary>
+            <p>You can request an entrance fee subsidy and a shipping allowance for sending physical work.</p>
+          </details>
+          <details>
+            <summary>
+              Is there a funding cap?
+              <span class="faq-toggle"><span class="plus">+</span><span class="minus">−</span></span>
+            </summary>
+            <p>Yes. Each student has a HK$10,000 cycle cap. Shipping support is capped at HK$1,000 per application.</p>
+          </details>
+          <details>
+            <summary>
+              Do I need to report results?
+              <span class="faq-toggle"><span class="plus">+</span><span class="minus">−</span></span>
+            </summary>
+            <p>Yes. Report each official competition result within one month of its announcement.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <p class="eyebrow">September 2025 – August 2026</p>
+          <h2 class="section-title">Ready to submit your work?</h2>
+          <p>Sign in to start an application or continue an existing draft.</p>
+          <a class="btn btn-primary" href="/portal">Enter the student portal →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer__inner">
+      <div>
+        <p><strong>PolyU School of Design</strong></p>
+        <p class="muted">Subsidy Scheme</p>
+      </div>
+      <a class="btn btn-outline" href="/portal">Student portal</a>
+      <p class="muted">September 2025 – August 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const drawer = document.getElementById("drawer");
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("menuOpen");
+    const closeBtn = document.getElementById("menuClose");
+
+    function openMenu() {
+      drawer.classList.add("is-open");
+      overlay.classList.add("is-open");
+      overlay.hidden = false;
+      drawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      drawer.classList.remove("is-open");
+      overlay.classList.remove("is-open");
+      overlay.hidden = true;
+      drawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    openBtn.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+    drawer.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
+</body>
+</html>
